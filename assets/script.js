@@ -6,9 +6,9 @@ var collection = {
     // Properties are made up of key-value pairs
     numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     letters: ["a", "b" ,"c", "d" , "e" , "f" , "g", "h", "i", "j", "k"],
-    symbols: ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",]
-
-  };
+    symbols: ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",],
+    CAPS: ["A", "B" ,"C", "D" , "e" , "f" , "g", "h", "i", "j", "k"]
+  }; // CAPS has to made to act as a seperation to letters
 
   
   // To access a property's value that is a string, number or boolean, use the object's name and the associated key	
@@ -25,30 +25,71 @@ console.log(collection.letters[random]);
 console.log(collection.symbols[random]);
 
 
+function Make(){
 
-var random = Math.floor(Math.random() * 10);
+  
+var collection = {
+    // Properties are made up of key-value pairs
+    numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    letters: ["a", "b" ,"c", "d" , "e" , "f" , "g", "h", "i", "j", "k"],
+    symbols: ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",],
+    CAPS: ["A", "B" ,"C", "D" , "E" , "F" , "G", "H", "I", "J", "K"]
+  }; // CAPS has to made to act as a seperation to letters
+
+var input = 10; // this will be based on user input for password length
+
+var Characters = x + y + z + CapsY;
+
+function make(){
+
+var genPassword = "";
+
+var random = Math.floor(Math.random() * input);
 var x = collection.numbers[random];
 var y = collection.letters[random];
 var z = collection.symbols[random];
+var CapsY = collection.CAPS[random];
 
-var CapsY = collection.letters[random];
 
 
-var random = Math.floor(Math.random() * 10);
-
-var genPassword = [];
-var input = 10; // this will be based on user input for how long the password is
-
-for (i = 0; i < input; i++) {
-  genPassword.push(x);
-  genPassword.push(y);
-  genPassword.push(z);
-  if (genPassword.length === input){
-    console.log(genPassword);
-  } else {
-    console.log(Error);
-  }
 }
+
+
+
+var Characters = x + y + z + CapsY;
+
+genPassword.push(collection.numbers Characters);
+
+console.log(genPassword);
+
+//if (genPassword.length = input){
+//  genPassword [i]
+//  genPassword.push(Characters);
+//  } else {
+//    console.log(genPassword);
+//  }
+}
+
+//for (var i = 0; i < studentNames.length;i++ ){
+//  console.log("Welcome to the class" + studentNames[i])
+//}
+
+
+//var random = Math.floor(Math.random() * input);
+
+//var genPassword = [];
+//var input = 10; // this will be based on user input for how long the password is
+
+//for (i = 0; i < input; i++) {
+//  genPassword.push(x);
+//  genPassword.push(y);
+ // genPassword.push(z);
+//  if (genPassword.length === input){
+ //   console.log(genPassword);
+ // } else {
+//    console.log(Error);
+//  }
+//}
 
 
 
