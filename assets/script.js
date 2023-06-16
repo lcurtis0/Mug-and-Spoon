@@ -51,12 +51,13 @@ for (i =0; i < countPassword; i++){
 
  // for (i =0; i < countPassword; i++){
 
-function playAddMore (){
+function generatePassword (){
+
 
 var countPassword = window.prompt("How long do you wish the password to be? Note: Must be between 8 - 128");
 console.log("User wants password to have" + countPassword + " charcters");
 
-var userChoiceNUM = window.prompt("Would you like numaric? (Y or N)");
+var userChoiceNUM = window.confirm("Would you like numaric? If so click okay");
 var userChoiceLET = window.prompt("Would you like letters? (Y or N)");
 var userChoiceSYM = window.prompt("Would you like symbols? (Y or N)");
 var userChoiceCAP = window.prompt("Would you like capital letters? (Y or N)");
@@ -67,7 +68,7 @@ var collection = {
     numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     letters: ["a", "b" ,"c", "d" , "e" , "f" , "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
     symbols: ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",],
-    CAPS: ["A", "B" ,"C", "D" , "E" , "F" , "G", "H", "I", "J", "K"]
+    CAPS: ["A", "B" ,"C", "D" , "E" , "F" , "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"]
   }; // CAPS has to made to act as a seperation to letters
 
   
@@ -80,6 +81,7 @@ var randomLET = Math.floor(Math.random() * collection.letters.length);
 var randomSYM = Math.floor(Math.random() * collection.symbols.length);
 var randomCAP = Math.floor(Math.random() * collection.CAPS.length);
 
+//
 
 console.log(collection.numbers[randomNUM]);
 console.log(collection.letters[randomLET]);
@@ -88,25 +90,27 @@ console.log(collection.CAPS[randomCAP]);
 
 //var computerChoice = collection[]
 
-var projectNUM = 0;
-var password = [];
+var password = "";
 
-console.log(userChoiceNUM);
-console.log(userChoiceLET);
+if ( 8 <= countPassword && countPassword <= 128 ){
 
-if ( 8 <= countPassword <= 128 ){
-
-if (userChoiceNUM === "Y" || "y" || "yes"){
-  password.push(collection.numbers[randomNUM]);
+  for (i =0; i < countPassword; i++){
+    var random = Math.floor(Math.random() * collection.numbers.length);
+    console.log(random)
+if (userChoiceNUM){
+  password += collection.numbers[random];
   console.log("Added numbers");
  //will have numbers
-} else if (userChoiceNUM === "N" || "n" || "no"){
+} else {
   console.log("No added numbers");
  //will not have numbers
 }
 
+  }
 
+return password;
 
+  
 
 if (userChoiceLET === "Y" || "y" || "yes"){
   password.push(collection.letters[randomLET]);
@@ -117,8 +121,7 @@ if (userChoiceLET === "Y" || "y" || "yes"){
  //will not have letters
 }
 
-
-
+  
 
 if (userChoiceSYM === "Y" || "y" || "yes"){
   password.push(collection.symbols[randomSYM]);
@@ -129,8 +132,9 @@ if (userChoiceSYM === "Y" || "y" || "yes"){
  //will not have symbols
 }
 
+  }
 
-
+  for (i =0; i < countPassword; i++){
 
 if (userChoiceCAP === "Y" || "y" || "yes"){
   password.push(collection.CAPS[randomCAP]);
@@ -141,26 +145,34 @@ if (userChoiceCAP === "Y" || "y" || "yes"){
  //will not have capitals letters
 }
 
+  }
 
-} else {
-  window.prompt("Error: The answer provided for password length was not valid or in range");
-}
+return password;
 
   }
 
 
 
 
-playAddMore();
 
-console.log(playAddMore);
 
-if (playAddMore){
+
+
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+
+
+  passwordText.value = password;
 
 }
 
-
-
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 
 
