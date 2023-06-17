@@ -26,6 +26,8 @@ N/A
 
 In this asignment we were taught to understand organized Javascript structure, and restablish variables in if statements.
 
+![alttext](.images/Screenshot%20(121).png)
+
 ## Credits
 
 N/A
